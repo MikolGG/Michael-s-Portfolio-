@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SENDIT case study | Isehunwa Michael, Product Designer</title>
+<meta name="description" content="Case study: designing a logistics and delivery app for Nigerian small-business owners. Research, wireframes, usability testing and high-fidelity UI by Isehunwa Michael.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16324a;--soft:#4b6275;--mint:#2ec4a0;--mintd:#127a62;--bg:#f3f8f7;--line:#d5e3e0;--night:#050a0a;--card:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 1.05rem/1.65 Figtree,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+img{max-width:100%;display:block}a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+h1,h2,h3{font-family:Unbounded,Figtree,sans-serif;line-height:1.15;margin:0;font-weight:500}
+h2{font-size:clamp(1.5rem,3.4vw,2.3rem);max-width:22ch}
+h3{font-size:1.05rem}
+p{margin:0 0 1em;max-width:62ch}
+.w{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.nav{position:sticky;top:0;z-index:9;background:rgba(243,248,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav b{font-family:Unbounded;font-weight:700;color:var(--mintd);letter-spacing:.02em}
+.nav a{text-decoration:none;margin-left:22px;font-size:.95rem;color:var(--soft)}.nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 72px}
+.hero .w{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.6vw,4.2rem);font-weight:700;margin-bottom:22px}
+.hero h1 span{color:var(--mintd)}
+.lede{font-size:1.2rem;color:var(--soft)}
+dl.meta{display:grid;grid-template-columns:repeat(2,auto);gap:14px 32px;margin:28px 0 0;justify-content:start}
+dl.meta dt{font-size:.85rem;color:var(--soft)}dl.meta dd{margin:0;font-weight:700}
+.stage{position:relative;background:var(--night);border-radius:28px;min-height:560px;overflow:hidden}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.stage img{position:absolute;border-radius:24px}
+.stage .a{width:31%;left:5%;top:15%;transform:rotate(-6deg)}
+.stage .b{width:40%;left:30%;top:6%;z-index:2;box-shadow:0 24px 60px rgba(46,196,160,.25)}
+.stage .c{width:31%;right:4%;top:20%;transform:rotate(6deg)}
+.route{fill:none;stroke:var(--mint);stroke-width:3;stroke-linecap:round;stroke-dasharray:1 12;opacity:.9}
+.pin{offset-path:path("M30 470 C 160 330, 260 520, 380 400 S 540 250, 600 150");offset-rotate:0deg;animation:go 5s .4s cubic-bezier(.5,0,.2,1) both;fill:var(--mint)}
+@keyframes go{from{offset-distance:0%}to{offset-distance:100%}}
+.cap{position:absolute;left:24px;bottom:18px;color:#8fd9c6;font-size:.85rem;z-index:3}
+.facts{background:var(--ink);color:#fff;padding:40px 0}
+.facts .w{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.facts b{display:block;font:500 2.4rem Unbounded;color:var(--mint)}.facts span{font-size:.95rem;color:#c3d4de}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px}
+.two h3{color:var(--mintd);margin-bottom:8px}
+.shift{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card)}
+.shift div{padding:28px}.shift div+div{background:var(--ink);color:#fff}
+.shift small{display:block;margin-bottom:10px;opacity:.7}
+.shift p{margin:0 0 .7em}
+.pains{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:36px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.pain p{margin:0 0 .6em;font-size:.98rem}.pain p:last-child{color:var(--mintd);font-weight:500}
+.pers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.per{border-top:4px solid var(--mint);padding-top:14px}.per small{color:var(--soft)}
+.per q{display:block;margin:10px 0;font-style:italic}
+figure{margin:36px 0 0}figcaption{font-size:.92rem;color:var(--soft);margin-top:10px;max-width:70ch}
+.shot{border-radius:16px;border:1px solid var(--line);background:#fff}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.ba figure{margin:0}.ba img{border-radius:18px;box-shadow:0 12px 36px rgba(22,50,74,.15);margin:0 auto;max-width:260px}
+.ba figcaption{text-align:center}
+.test{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.big{font:700 4.6rem/1 Unbounded;color:var(--mintd)}
+.dark{background:var(--night);color:#fff}
+.dark h2{color:#fff}.dark .lede{color:#a8bfc8}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.phones figcaption{color:#a8bfc8}
+.phones figure{margin:0}
+.acc{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.acc h3{margin-bottom:8px}
+.next{counter-reset:n;margin:36px 0 0;padding:0;list-style:none}
+.next li{counter-increment:n;display:grid;grid-template-columns:56px 1fr;padding:22px 0;border-top:1px solid var(--line)}
+.next li::before{content:counter(n);font:700 1.6rem Unbounded;color:var(--mint)}
+.next b{display:block;margin-bottom:4px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;background:var(--mint);color:#04241c;font-weight:700;text-decoration:none}
+.btn.o{background:none;border:2px solid var(--mint);color:var(--mint)}
+.btn:hover{filter:brightness(1.08)}
+footer{padding:28px 0;color:var(--soft);font-size:.9rem}
+@media(max-width:860px){.hero .w,.two,.shift,.pains,.pers,.pair,.duo,.test,.acc{grid-template-columns:1fr}.facts .w,.phones{grid-template-columns:1fr 1fr}.nav a:not(:last-child){display:none}.stage{min-height:460px}section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){.pin{animation:none;offset-distance:100%}html{scroll-behavior:auto}}
+</style>
+</head>
+<body id="top">
+<header class="nav"><div class="w"><a href="index.html" style="margin:0"><b>← Isehunwa Michael</b></a><nav><a href="index.html#work">All work</a><a href="#research">Research</a><a href="#design">Design</a><a href="#testing">Testing</a><a href="#screens">Screens</a><a href="#contact">Contact</a></nav></div></header>
+
+<main>
+<div class="hero"><div class="w">
+ <div>
+  <h1>Delivery that small businesses can <span>trust.</span></h1>
+  <p class="lede">SENDIT is a logistics app I designed for Nigerian small-business owners who manage orders by hand and can't see where their packages are.</p>
+  <dl class="meta"><div><dt>Role</dt><dd>Sole product designer</dd></div><div><dt>Timeline</dt><dd>May to June 2025</dd></div><div><dt>Platforms</dt><dd>Mobile app and website</dd></div><div><dt>Work</dt><dd>Research to high-fidelity UI</dd></div></dl>
+  <div class="btns"><a class="btn" href="https://www.figma.com/proto/8qcOpQC0FsLZY3pGMJjh9l/Send-IT?node-id=304-864&p=f&viewport=302%2C347%2C0.11&t=WMvLF9UpYJuKF9FO-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=304%3A864&page-id=67%3A3" target="_blank" rel="noopener">Open the prototype</a></div>
+ </div>
+ <div class="stage" aria-label="SENDIT app screens: login, home and splash">
+  <svg viewBox="0 0 640 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="route" d="M30 470 C 160 330, 260 520, 380 400 S 540 250, 600 150"/><g class="pin"><circle r="9"/></g></svg>
+  <img class="a" src="img/login.jpg" alt="SENDIT login screen" width="394" height="794">
+  <img class="b" src="img/home.jpg" alt="SENDIT home screen greeting Amina, with quote options for intra-state, inter-state and international shipments" width="386" height="786">
+  <img class="c" src="img/splash.jpg" alt="SENDIT splash screen: Move, Track, Deliver" width="386" height="786">
+  <span class="cap">Lagos to Onitsha: the route my research kept coming back to</span>
+ </div>
+</div></div>
+
+<div class="facts"><div class="w">
+ <div><b>15</b><span>small-business operators interviewed in Lagos, Abuja and Onitsha</span></div>
+ <div><b>3</b><span>personas: seller, logistics aggregator, market trader</span></div>
+ <div><b>2</b><span>rounds of usability evaluation</span></div>
+ <div><b>4 of 5</b><span>testers couldn't pick the right vehicle, which led to a redesign</span></div>
+</div></div>
+
+<section id="research"><div class="w">
+ <h2>The problem is trust, not just price.</h2>
+ <div class="two">
+  <div><h3>Problem</h3><p>Small-business owners manage orders manually and deal with unreliable delivery, little rider communication and poor shipment visibility. That creates customer anxiety, complaints and extra work.</p></div>
+  <div><h3>Goal</h3><p>Design a simple, trustworthy delivery experience that gives businesses clearer control over orders and gives customers visibility throughout the delivery.</p></div>
+ </div>
+ <div class="shift">
+  <div><small>What I assumed</small><p>Delivery cost was the main struggle.</p><p>Users would be fairly tech savvy.</p></div>
+  <div><small>What 15 interviews and observations showed</small><p>Reliability, real-time tracking and rider communication mattered more than cost.</p><p>Many people, especially market traders, wanted simple interfaces, voice features and local-language support.</p></div>
+ </div>
+ <div class="pains">
+  <div class="pain"><h3>Unreliable delivery</h3><p>Late or missed deliveries mean lost sales and complaints.</p><p>Design response: real-time tracking, delivery confirmation and a rider reliability score.</p></div>
+  <div class="pain"><h3>No communication</h3><p>Users can't reach riders or get updates, which creates anxiety and mistrust.</p><p>Design response: in-app chat and calls, automated status updates.</p></div>
+  <div class="pain"><h3>Cluttered interfaces</h3><p>Market traders find existing logistics apps confusing.</p><p>Design response: large icons, minimal text and optional voice navigation.</p></div>
+  <div class="pain"><h3>Manual order handling</h3><p>Sellers juggle orders, delivery details and customer info separately.</p><p>Design response: one dashboard with order syncing from Instagram and WhatsApp.</p></div>
+ </div>
+ <div class="pers">
+  <div class="per"><h3>Amina Suleiman</h3><small>23, online fashion retailer, Abuja</small><q>If my customers cannot track their order or it arrives late, I lose trust.</q><p>Wants one platform for local and nationwide deliveries, with automated order syncing.</p></div>
+  <div class="per"><h3>Tolu Adebayo</h3><small>41, logistics aggregator, Lagos</small><q>Every minute wasted in traffic or confusion costs me money.</q><p>Needs rider coordination, route planning and performance analytics.</p></div>
+  <div class="per"><h3>Chinedu Okeke</h3><small>58, market trader, Onitsha</small><q>I just want a delivery service that shows up when they say they would.</q><p>Wants affordable, reliable delivery and an app with voice note support.</p></div>
+ </div>
+ <figure><img class="shot" src="img/journey.jpg" alt="Journey map for Amina covering receiving orders, preparing, scheduling, monitoring, confirming and reviewing delivery" loading="lazy"><figcaption>Amina's journey map. Her most anxious moment is monitoring a delivery, so tracking and automatic status updates became core features.</figcaption></figure>
+</div></section>
+
+<section id="design" style="background:#fff"><div class="w">
+ <h2>From paper sketches to a dispatch flow.</h2>
+ <p class="lede" style="margin-top:18px">I explored five home-screen layouts on paper, keeping primary actions visible and cutting the steps needed to create or monitor a delivery.</p>
+ <figure><img class="shot" src="img/paper.jpg" alt="Five paper wireframe versions of the home screen and a refined version" loading="lazy"><figcaption>Five paper versions, then a refined layout: clear greeting, quick info, consistent action cards and fixed bottom navigation.</figcaption></figure>
+ <div class="duo">
+  <figure style="margin:0"><img class="shot" src="img/wf-home.jpg" alt="Annotated digital wireframe of the homepage" loading="lazy"><figcaption><b>Homepage.</b> Wallet balance and service categories are reachable at a glance, so starting a shipment takes fewer taps.</figcaption></figure>
+  <figure style="margin:0"><img class="shot" src="img/wf-send.jpg" alt="Annotated digital wireframe of the Send a Package screen" loading="lazy"><figcaption><b>Send a package.</b> Pickup, vehicle, sender and receiver in logical order, with pre-filled sender details and one clear "Find a driver" button.</figcaption></figure>
+ </div>
+</div></section>
+
+<section id="testing"><div class="w">
+ <h2>Testing changed two screens.</h2>
+ <p class="lede" style="margin-top:18px">Round 1 flagged slow multi-line labels, easy-to-miss edit links and hidden fares. Round 2 asked for shorter labels, stronger field hierarchy and fare plus arrival time shown together before booking.</p>
+ <div class="test">
+  <div><div class="big">4/5</div><h3 style="margin:10px 0">couldn't choose a vehicle</h3><p>They didn't know which vehicle fit their item. I added a short hint under the options: "Ideal for light weight items: documents, international passport, etc."</p></div>
+  <div class="ba"><figure><img src="img/veh-before.jpg" alt="Vehicle selection before testing" loading="lazy"><figcaption>Before</figcaption></figure><figure><img src="img/veh-after.jpg" alt="Vehicle selection with item-size guidance after testing" loading="lazy"><figcaption>After</figcaption></figure></div>
+ </div>
+ <div class="test">
+  <div><div class="big">Saved cards</div><h3 style="margin:10px 0">Typing card numbers every time was tedious</h3><p>I redesigned the wallet with a Manage Cards section, so a saved debit card can be reused at checkout.</p></div>
+  <div class="ba"><figure><img src="img/wal-before.jpg" alt="Wallet before testing" loading="lazy"><figcaption>Before</figcaption></figure><figure><img src="img/wal-after.jpg" alt="Wallet with saved card after testing" loading="lazy"><figcaption>After</figcaption></figure></div>
+ </div>
+ <p style="color:var(--soft);font-size:.95rem">These are findings and design responses from prototype testing, not measured results from a live product.</p>
+</div></section>
+
+<section id="screens" class="dark"><div class="w">
+ <h2>The high-fidelity app.</h2>
+ <p class="lede" style="margin-top:18px">Teal for action, steel blue for text, large rounded cards and a persistent bottom bar. The Move, Track, Deliver tagline sits on every entry point.</p>
+ <div class="phones">
+  <figure><img src="img/splash.jpg" alt="Splash screen" loading="lazy"><figcaption>Splash</figcaption></figure>
+  <figure><img src="img/signup.jpg" alt="Sign up screen" loading="lazy"><figcaption>Sign up</figcaption></figure>
+  <figure><img src="img/login.jpg" alt="Login screen" loading="lazy"><figcaption>Login</figcaption></figure>
+  <figure><img src="img/home.jpg" alt="Home screen" loading="lazy"><figcaption>Home</figcaption></figure>
+ </div>
+ <div class="acc">
+  <div><h3>Screen readers</h3><p>Concise descriptions so people with visual impairments get context for charts and complex information.</p></div>
+  <div><h3>Large touch targets</h3><p>Simpler buttons and bigger tap areas reduce mis-taps for people with fine-motor limitations.</p></div>
+  <div><h3>Clear errors</h3><p>Specific instructions with text and an icon, to help people with cognitive disabilities finish tasks.</p></div>
+ </div>
+ <div class="btns"><a class="btn" href="https://www.figma.com/proto/8qcOpQC0FsLZY3pGMJjh9l/Send-IT?node-id=304-864&p=f&viewport=302%2C347%2C0.11&t=WMvLF9UpYJuKF9FO-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=304%3A864&page-id=67%3A3" target="_blank" rel="noopener">High-fidelity prototype</a><a class="btn o" href="https://www.figma.com/proto/8qcOpQC0FsLZY3pGMJjh9l/Send-IT?node-id=877-1054&p=f&viewport=616%2C-168%2C0.06&t=ymdWjLloafkxpVPH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=877%3A1049&page-id=1%3A2" target="_blank" rel="noopener">Low-fidelity prototype</a><a class="btn o" href="https://www.figma.com/design/8qcOpQC0FsLZY3pGMJjh9l/Send-IT?node-id=884-1163&t=Kqk4ekYqibjGqK4t-1" target="_blank" rel="noopener">Figma file</a></div>
+</div></section>
+
+<section><div class="w">
+ <h2>What I learned, and what's next.</h2>
+ <p style="margin-top:18px">Challenging my first assumption mattered most. Cost was a concern, but reliability and communication were the deeper trust problems, and designing around them gave the product a clearer direction.</p>
+ <ol class="next">
+  <li><div><b>Pilot beta with local logistics partners</b>Test delivery assignment speed, live tracking accuracy and payment settlement with independent riders and couriers in Lagos.</div></li>
+  <li><div><b>Add analytics and conversion tracking</b>Use tools like Mixpanel or Hotjar to find drop-off between getting a quote and completed payment.</div></li>
+  <li><div><b>Design driver and dispatcher apps</b>Cover order acceptance, live route optimization and operations management.</div></li>
+ </ol>
+</div></section>
+
+<section id="contact" class="dark" style="text-align:center"><div class="w">
+ <h2 style="margin:0 auto">Let's talk about your next product.</h2>
+ <p class="lede" style="margin:18px auto 0">Open to design opportunities and collaborations.</p>
+ <div class="btns" style="justify-content:center"><a class="btn" href="mailto:isehunwamichael@gmail.com">isehunwamichael@gmail.com</a><a class="btn o" href="http://linkedin.com/in/michael-isehunwa-053a7b279" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></section>
+</main>
+<footer><div class="w">© 2026 Isehunwa Michael. SENDIT case study. <a href="index.html">Back to all work</a></div></footer>
+</body>
+</html>
